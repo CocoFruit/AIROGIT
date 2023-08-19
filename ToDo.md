@@ -1,7 +1,12 @@
 ### TO DO
 
+## Genearal
+- [x] Create a repository for the project
+- [x] Create a README
+- [x] Create a ToDo
+
 ## Research
-- [ ]
+- [ ] Figure out which LLM I want to use
 
 ## System Design and Architecture
 - [ ] Define the characteristics and capabilities of individual agent (skills, communication abilities, and decision-making strategies)
