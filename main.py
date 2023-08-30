@@ -1,79 +1,53 @@
-# Python Version: 3.10.7
 import openai
+import os
+
+def list_files_in_folder(folder_path):
+    current = []
+    with os.scandir(folder_path) as entries:
+        for entry in entries:
+            if not entry.name.startswith('.'):  # Exclude hidden files/folders
+                if entry.is_file():
+                    current.append(entry.name)
+                    print("File:", entry.name)
+                elif entry.is_dir():
+                    current.append({entry.name: list_files_in_folder(entry.path)})
+                    print("Directory:", entry.name)
+    return current
 
 
+
+openai.api_key = "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"
+
+def send_it(messages, prompt):
+    messages.append(
+        {"role": "assistant", "content": prompt},
+    )
+
+    chat = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo", messages=messages
+    )
+
+    reply = chat.choices[0].message.content
+    messages.append({"role": "assistant", "content": reply})
+
+    return reply, messages
 
 def main():
-    openai.api_key = "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"
 
-    messages = [ {"role": "system", "content": '''You are an intelligent system that describes 
-                  programming problems in a step-by-step way'''} ]
+    old_directory = {'test_folder': ['test.py', {'test2_folder': ['test2.py']}]}
+    new_directory = {'test_folder': ['test.py', {'test2_folder': ['test2.py', 'test3.py']}]}
+    # file_system = {"test_folder": list_files_in_folder(r"C:\Users\parke\OneDrive\Documents\GitHub\AgentSyncScript\test_folder")}
 
+    messages = [ {"role": "system", "content": '''You are an intelligent system that knows the past and present versions of files and directories'''} ]
 
-    print("Reading Prompt...")
-
-    with open("problem.txt", "r") as f:
-        problem = f.read()
-
-    explainer_prompt = """
-    Describe this competitive programming problem in a step-by-step way such that it can be solved with ease and precision.
-    You should understand the problem and present the description as an outline to the solution. Be as specific as possible.
-    Problem: {problem}
+    directory_diff_prompt = f"""
+    Given the following directory, describe the differences between the two directories.
+    Past Directory: {old_directory}
+    Present Directory: {new_directory}
     """
 
-    solver_prompt = """
-    Given the following problem as well as an explanation of the problem, write a program that solves this competitive programming problem.
-    Do so in a way that works well and don't worry about efficiency. Do the problem in Python. Respond with the code and only the code.
+    reply,messages = send_it(messages, directory_diff_prompt)
 
-    Problem: {problem}
-
-    Explanation: {explanation}
-    """
-
-    ##--Explaining--##
-
-    messages.append(
-        {"role": "assistant", "content": explainer_prompt.format(problem=problem)},
-    )
-    chat = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", messages=messages
-    )
-
-    print("Explaining...")
-
-    reply = chat.choices[0].message.content
-    messages.append({"role": "assistant", "content": reply})
-
-    explination = reply
-
-    with open("explanation.txt", "w") as f:
-        f.write(explination)
-
-    # print(f"Explainer: {reply}")
-
-
-    ##--Solving--##
-
-    print("Solving...")
-    
-    messages.append(
-        {"role": "assistant", "content": solver_prompt.format(problem=problem, explanation=explination)},
-    )
-    chat = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", messages=messages
-    )
-
-    reply = chat.choices[0].message.content
-    messages.append({"role": "assistant", "content": reply})
-
-    solution = reply
-
-    with open("solution.py", "w") as f:
-        f.write(reply)
-
-    # print(f"Solver: {solution}")
-
-    print("Done!")
 
 if __name__=="__main__":
     main()
