@@ -1,0 +1,36 @@
+#! /bin/sh
+TITLE=${MACOS_ASKPASS_TITLE:-"SSH"}
+DIALOG="display dialog \"$@\" default answer \"\" with title \"$TITLE\""
+DIALOG="$DIALOG with icon caution"
+
+yesno=
+if echo "$1" | grep "'yes'" 2>&1 >/dev/null ||
+	echo "$1" | grep "yes/no" 2>&1 >/dev/null
+then
+	yesno=true
+fi
+
+
+if test -z "$yesno"
+then
+	DIALOG="$DIALOG with hidden answer"
+fi
+
+result=$(osascript \
+	-e 'tell application "Finder"' \
+	-e "activate"  \
+	-e "$DIALOG" \
+	-e 'end tell' 2>/dev/null)
+
+if test -z "$result"
+then
+	exit 1
+fi
+
+# The beginning of the output can be either "text returned:"
+# or "button returned:", and is Mac OS X version-dependent.
+# Account for both output styles.
+printf '%s\n' "$result" |
+sed -e 's/^text returned://' -e 's/, button returned:.*$//' \
+	-e 's/^button returned:OK, text returned://'
+exit 0

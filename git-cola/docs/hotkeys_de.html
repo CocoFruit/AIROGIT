@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+body {
+    font-family: Helvetica, Ubuntu, sans;
+    background-color: #303030;
+    color: #fff;
+}
+
+table.center {
+    width: 50%;
+    float: left;
+    padding-bottom: 20px;
+}
+
+td {
+    vertical-align: top;
+}
+
+td.title {
+    color: #ff6;
+    font-weight: bold;
+}
+
+td.shortcut {
+    font-family: Monaco, "Ubuntu Mono", monospace;
+    color: #ff6;
+    text-align: right;
+    font-size: 0.8em;
+}
+
+span.title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<span class="title">Tastenkürzel</span>
+<hr />
+
+<!-- Preparing Commits -->
+<table class="center">
+<tr>
+    <td width="35%">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="title">Version</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Return</td>
+    <td>:</td>
+    <td>Vorgemerkte Änderungen versionieren</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + Return</td>
+    <td>:</td>
+    <td>Prepare commit message hook</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + S</td>
+    <td>:</td>
+    <td>Ausgewählte Dateien vormerken</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + S</td>
+    <td>:</td>
+    <!-- TODO -->
+    <td>Stage / unstage all files</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + A</td>
+    <td>:</td>
+    <td>Geänderte Dateien vormerken</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + U</td>
+    <td>:</td>
+    <td>Alle neuen Dateien vormerken</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + U</td>
+    <td>:</td>
+    <!-- TODO -->
+    <td>Revert the selected lines, or the diff hunk beneath the text cursor when nothing
+        is selected, from the worktree</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + U</td>
+    <td>:</td>
+    <!-- TODO -->
+    <td>Launch an external editor to edit the selected lines, or the diff hunk beneath
+        the text cursor when nothing is selected, and then revert unstaged changes
+        using the edited diff</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Z</td>
+    <td>:</td>
+    <td>Nicht versionierte Änderungen verwerfen</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + M</td>
+    <td>:</td>
+    <!-- TODO -->
+    <td>Merge branches</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + M</td>
+    <td>:</td>
+    <td>Letzte Version nachbessern</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + C</td>
+    <td>:</td>
+    <td>Einzelne Version übernehmen</td>
+</tr>
+</table>
+
+<!-- Actions -->
+<table class="center">
+<tr>
+    <td width="35%">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="title">Befehle</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + B</td>
+    <td>:</td>
+    <td>Neuen Zweig erstellen</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + B</td>
+    <td>:</td>
+    <td>Zweig wechseln</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + T</td>
+    <td>:</td>
+    <td>Find files</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + G</td>
+    <td>:</td>
+    <td>Suchen</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + D</td>
+    <td>:</td>
+    <td>Vergleichsstatistik anzeigen</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + Shift + E</td>
+    <td>:</td>
+    <td>Patches exportieren</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + Shift + S</td>
+    <td>:</td>
+    <td>Weglegen und zurückholen</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Enter</td>
+    <td>:</td>
+    <td>Apply Stash</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Backspace</td>
+    <td>:</td>
+    <td>Pop Stash</td>
+</tr>
+<tr>
+<td class="shortcut">Ctrl + Shift + Backspace</td>
+    <td>:</td>
+    <td>Drop Stash</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Backspace</td>
+    <td>:</td>
+    <td>Delete untracked files</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + F</td>
+    <td>:</td>
+    <td>Toggle paths filter</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + R</td>
+    <td>:</td>
+    <td>Ansicht aktualisieren</td>
+</tr>
+<tr>
+    <td class="shortcut">?</td>
+    <td>:</td>
+    <td>Tastenkürzel</td>
+</tr>
+</table>
+
+<!-- Editing -->
+<table class="center">
+<tr>
+    <td width="35%">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="title">Bearbeiten</td>
+</tr>
+<tr>
+    <td class="shortcut">Enter / Ctrl + E</td>
+    <td>:</td>
+    <td>Im Editor bearbeiten</td>
+</tr>
+<tr>
+    <td class="shortcut">Space</td>
+    <td>:</td>
+    <td>Mit der Standardanwendung öffnen</td>
+</tr>
+<tr>
+    <td class="shortcut">Shift + Space</td>
+    <td>:</td>
+    <td>Übergeordnetes Verzeichnis öffnen</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Alt + C</td>
+    <td>:</td>
+    <td>Version kopieren</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + E</td>
+    <td>:</td>
+    <td>Kürzlich geänderte Dateien anzeigen/bearbeiten</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + #</td>
+    <td>:</td>
+    <td>Werkzeuge fokussieren</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + #</td>
+    <td>:</td>
+    <td>Werkzeuge anzeigen und verstecken</td>
+</tr>
+</table>
+
+<!-- Diff -->
+<table class="center">
+<tr>
+    <td width="35%">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="title">Vergleichsansicht</td>
+</tr>
+<tr>
+    <td class="shortcut">S</td>
+    <td>:</td>
+    <td>Auswahl vormerken; falls nichts ausgewählt ist,
+        siehe <strong><em>H</em></strong>
+    </td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + S</td>
+    <td>:</td>
+    <td>Launch an external editor to edit the selected lines, or the diff hunk beneath the
+        text cursor when nothing is selected, and then stage the edited diff</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + D</td>
+    <td>:</td>
+    <td>Mithilfe von `git difftool` ansehen</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + F</td>
+    <td>:</td>
+    <td>Search diff for matching text</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + G</td>
+    <td>:</td>
+    <td>Search diff for the next text match</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + G</td>
+    <td>:</td>
+    <td>Search diff for the previous text match</td>
+</tr>
+<tr>
+    <td class="shortcut">Alt + Shift + C</td>
+    <td>:</td>
+    <td>Copy Diff to clipboard (strips diff +/- prefixes)</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + D</td>
+    <td>:</td>
+    <td>View directory diff using `git difftool --dir-diff`</td>
+</tr>
+<tr>
+    <td class="shortcut">Shift</td>
+    <td>:</td>
+    <td>Hold shift to select text when moving around with H, J, K, L and Arrow keys</td>
+</tr>
+<tr>
+    <td class="shortcut">Space / Shift + Space</td>
+    <td>:</td>
+    <td>Page Down / Page Up</td>
+</tr>
+<tr>
+    <td class="shortcut">0 (Zero)</td>
+    <td>:</td>
+    <td>Move cursor to the start of the line</td>
+</tr>
+<tr>
+    <td class="shortcut">$ (Shift + 4)</td>
+    <td>:</td>
+    <td>Move cursor to the end of the line</td>
+</tr>
+<tr>
+    <td class="shortcut">G G</td>
+    <td>:</td>
+    <td>Move cursor to the start of the diff</td>
+</tr>
+<tr>
+    <td class="shortcut">Shift + G</td>
+    <td>:</td>
+    <td>Move cursor to the end of the diff</td>
+</tr>
+</table>
+
+
+<!-- Browser actions -->
+<table class="center">
+<tr>
+    <td width="35%">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="title">Browser-Befehle</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + H</td>
+    <td>:</td>
+    <td>Verlauf anzeigen</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + Shift + D</td>
+    <td>:</td>
+    <td>Mit Vorgänger vergleichen</td>
+</tr>
+</table>
+
+<!-- Tree navigation -->
+<table class="center">
+<tr>
+    <td width="35%">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="title">Navigation</td>
+</tr>
+<tr>
+    <td class="shortcut">H</td>
+    <td>:</td>
+    <td>Nach links/einklappen</td>
+</tr>
+<tr>
+    <td class="shortcut">J / Alt + J</td>
+    <td>:</td>
+    <td>Nach unten</td>
+</tr>
+<tr>
+    <td class="shortcut">K / Alt + K</td>
+    <td>:</td>
+    <td>Nach oben</td>
+</tr>
+<tr>
+    <td class="shortcut">L</td>
+    <td>:</td>
+    <td>Nach rechts/ausklappen</td>
+</tr>
+<!-- TODO -->
+<tr>
+    <td class="shortcut">Ctrl + J</td>
+    <td>:</td>
+    <td>Focus the Diff Editor</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + K</td>
+    <td>:</td>
+    <td>Focus the Status tool</td>
+</tr>
+<tr>
+    <td class="shortcut">Ctrl + L</td>
+    <td>:</td>
+    <td>Focus the Commit summary, Grep query, DAG query, ...</td>
+</tr>
+</table>
+
+</body>
