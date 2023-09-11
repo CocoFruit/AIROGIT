@@ -1,8 +1,8 @@
-# AIROGIT - AI-Powered Git Commit Messages and Descriptions
+# AIROGIT 
 
 ![Git Meme](git_meme.webp)
 
-AIROGIT is an innovative tool designed to simplify and enhance your Git version control workflow. Leveraging advanced Language Model technology, AIROGIT automates the process of generating commit messages and descriptions, ensuring that your Git history is clear, informative, and consistent. Integrated seamlessly with GIT-COLA's Git GUI, it's the ultimate solution for developers looking to streamline their versioning process.
+AIROGIT *(AI-Related Overview and Git Information Tool)* is an innovative tool designed to simplify and enhance your Git version control workflow. Leveraging advanced Language Model technology, AIROGIT automates the process of generating commit messages and descriptions, ensuring that your Git history is clear, informative, and consistent. Integrated seamlessly with GIT-COLA's Git GUI, it's the ultimate solution for developers looking to streamline their versioning process.
 
 ## Features
 
