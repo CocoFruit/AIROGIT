@@ -1,0 +1,8 @@
+# Optional packages enable additional functionality.
+# These packages are not required in order to build or run Git Cola.
+
+## Enable "Send to Trash".
+send2trash==1.7.1
+
+## Enable MacOS-specific appearance themes.
+pyobjc; sys_platform == 'darwin'

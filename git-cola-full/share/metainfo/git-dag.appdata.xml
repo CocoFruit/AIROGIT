@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>git-dag.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0</project_license>
+  <name>Git DAG</name>
+  <description>
+    <p>
+      git-dag is an advanced git DAG visualizer
+    </p>
+  </description>
+  <url type="homepage">https://git-cola.github.io/</url>
+  <releases>
+    <release version="4.3.2" date="2023-08-30" />
+    <release version="4.3.1" date="2023-08-18" />
+    <release version="4.3.0" date="2023-08-12" />
+    <release version="4.2.1" date="2023-03-31" />
+    <release version="4.2.0" date="2023-03-23" />
+    <release version="4.1.0" date="2022-12-23" />
+    <release version="4.0.4" date="2022-11-22" />
+    <release version="4.0.3" date="2022-11-10" />
+    <release version="4.0.2" date="2022-09-29" />
+    <release version="4.0.1" date="2022-06-10" />
+    <release version="4.0.0" date="2022-05-23" />
+    <release version="3.12.0" date="2022-01-20" />
+  </releases>
+  <content_rating type="oars-1.1" />
+</component>

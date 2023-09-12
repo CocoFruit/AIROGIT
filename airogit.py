@@ -24,7 +24,7 @@ def get_all_contents(folder_path):
                         current[entry.path] = f.read()
     return current
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def send_it(messages, prompt):
     messages.append(
@@ -130,11 +130,32 @@ def summarize_changes(old_directory,new_directory,verbose=False):
     
     return reply,messages
 
-def main():
-    old = r"C:\Users\parke\OneDrive\Documents\GitHub\AgentSyncScript\practice_old"
-    new = r"C:\Users\parke\OneDrive\Documents\GitHub\AgentSyncScript\practice_new"
+def new_summarize_changes(git_diff, template, verbose=False):
+    messages = [ {"role": "system", "content": '''You are an intelligent system that knows the past and present versions of files and directories'''} ]
 
-    summary = summarize_changes(old,new,verbose=True)[0]
-    print(summary)
+    summary_prompt = f"""Given the differences in a git repo, create a summary and description for the commit message. Use what you know about creating concise and accurate commit messages to create the message. 
+    \nHere is a template for a commit message:\n {template}
+    \n\nHere is the git diff:\n {git_diff}
+    """
+
+    reply,messages = send_it(messages, summary_prompt)
+    reply = reply.strip().split("\n",1)
+    title = reply[0].replace("Title:","").strip()
+    body = reply[1].replace("Body:","").strip()
+    print("title:",title)
+    print("body:",body)
+    return title,body
+
+
+    
+def main():
+    # old = r"C:\Users\parke\OneDrive\Documents\GitHub\AgentSyncScript\practice_old"
+    # new = r"C:\Users\parke\OneDrive\Documents\GitHub\AgentSyncScript\practice_new"
+
+    # summary = summarize_changes(old,new,verbose=True)[0]
+    # print(summary)
+
+    # new_summarize_changes()
+    pass
 if __name__=="__main__":
     main()
