@@ -635,6 +635,12 @@ class CommitSummaryLineEdit(SpellCheckLineEdit):
         SpellCheckLineEdit.keyPressEvent(self, event)
 
     def autofill_summary(self):
+        '''Autofill the commit summary from the staged changes'''
+        
+        diff_files = gitcmds.diff(self.context,args=[])
+        # for file in diff_files:            
+        diff = cmds.DiffStagedSummary(self.context)
+        print(diff.new_diff_text)
         self.set_value("testing", block=True)
 
 
