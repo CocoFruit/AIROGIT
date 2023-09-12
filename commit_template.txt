@@ -15,6 +15,7 @@
 # 5. Use the imperative mood in the subject line
 # 6. Wrap the body at 72 characters
 # 7. Use the body to explain what and why vs. how
+# 8. BE CONCISE AND DONT OVER EXPLAIN OR REPEAT
 
 # On branch master
 # Your branch is up to date with 'origin/main'.
@@ -24,18 +25,10 @@
 #
 
 # Example of a good commit message:
-title: Rename main.py to airogit.py and add commit message autofill function
-body: The commit includes the following changes:
-- Renaming the file main.py to airogit.py
-- Added a new function to autofill the commit summary from the staged changes
-
-The renaming of the file was done to improve the clarity and consistency of the codebase. 
-Additionally, the new function will make it easier for developers to create commit messages 
-by automatically populating the summary based on the staged changes. This will save time and
-ensure that commit messages follow the required format.
-
-Note: Further improvements can be made to handle multiple files and refine the autofill logic.
-Rename main.py to airogit.py and add commit message autofill function Body:
-The commit includes the following changes:
-- Renaming the file main.py to airogit.py
-- Added a new function to autofill the commit summary from the staged changes
+# title: bla bla bla
+#
+# body: The commit includes the following changes:
+# - bla bla bla
+# - bla bla bla
+#
+# this was done because bla bla bla

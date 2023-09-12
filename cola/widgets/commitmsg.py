@@ -1,4 +1,4 @@
-from airogit import new_summarize_changes
+from airogit import summarize_changes
 
 from functools import partial
 
@@ -392,12 +392,12 @@ class CommitMessageEditor(QtWidgets.QFrame):
         '''Autofill the commit summary from the staged changes'''
         
         diff_files = gitcmds.diff(self.context,args=[])
-        # for file in diff_files:            
         diff = cmds.DiffStagedSummary(self.context)
+        
         with open("./commit_template.txt","r") as file:
             template = file.read()
         
-        title,body = new_summarize_changes(git_diff=diff.new_diff_text, template=template, verbose=True)
+        title,body = summarize_changes(git_diff=diff.new_diff_text, template=template, verbose=True)
         print(title,body)
         self.set_commit_message(title+"\n"+body)
 
