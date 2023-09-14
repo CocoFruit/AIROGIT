@@ -16,6 +16,9 @@
 
 AIROGIT is designed to enhance the Git version control workflow by automating the process of generating commit messages and descriptions. This repository contains the source code and documentation for AIROGIT.
 
+## Demo
+[AIROGIT Demo](https://www.youtube.com/watch?v=zMMak_UV_bU)
+
 ## Project Status
 
 AIROGIT is actively maintained and developed by me and the [GIT-COLA](https://github.com/git-cola/git-cola) is also being actively maintaned and developed seperately. We welcome contributions from the community and are committed to improving this tool continuously.
@@ -29,8 +32,6 @@ AIROGIT is actively maintained and developed by me and the [GIT-COLA](https://gi
 - `docs/`: Documentation for AIROGIT.
 - `extras/`: Additional resources and files.
 - `git-cola-full/`: Git-COLA source code.
-- `practice_new/`: A directory for practice or development.
-- `practice_old/`: A directory for previous practice or development.
 - `qtpy/`: Code related to QtPy.
 - `requirements/`: Requirement files for the project.
 - `share/`: Shared files and resources.
@@ -46,9 +47,7 @@ AIROGIT is actively maintained and developed by me and the [GIT-COLA](https://gi
 - `COPYRIGHT`: Copyright information.
 - `LICENSE`: Project license.
 - `Makefile`: Makefile for project tasks.
-- `TODO.md`: Task list and project TODOs.
 - `__init__.py`: Initialization file.
-- `commit_template.txt`: Commit message template.
 - `garden.yaml`: Configuration for garden.
 - `pynsist.cfg`: Configuration for PyNsiSt.
 - `pyproject.toml`: Project metadata in TOML format.
@@ -61,7 +60,9 @@ AIROGIT is actively maintained and developed by me and the [GIT-COLA](https://gi
 #### AIROGIT Source Code:
 - `README.md`: This documentation file.
 - `git_meme.webp`: Fun Git meme image.
+- `TODO.md`: Task list and project TODOs.
 - `airogit.py`: AIROGIT source code.
+- `commit_template.txt`: Commit message template.
 
 ## License
 
