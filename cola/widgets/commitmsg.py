@@ -93,12 +93,16 @@ class CommitMessageEditor(QtWidgets.QFrame):
         )
         self.description.menu_actions.extend(menu_actions)
 
+        autofill_button_tooltip = N_('Autofill commit message from staged changes')
+        
+        self.autofill_button = qtutils.create_button(
+            text=N_('Autofill'), tooltip=autofill_button_tooltip
+        )
+
         commit_button_tooltip = N_('Commit staged changes\nShortcut: Ctrl+Enter')
+
         self.commit_button = qtutils.create_button(
             text=N_('Commit@@verb'), tooltip=commit_button_tooltip, icon=icons.commit()
-        )
-        self.autofill_button = qtutils.create_button(
-            text=N_('Autofill'), tooltip=commit_button_tooltip, icon=icons.commit()
         )
         self.commit_group = Group(self.commit_action, self.commit_button)
         self.commit_progress_bar = standard.progress_bar(
@@ -391,16 +395,14 @@ class CommitMessageEditor(QtWidgets.QFrame):
     def autofill(self):
         '''Autofill the commit summary from the staged changes'''
         
-        diff_files = gitcmds.diff(self.context,args=[])
         diff = cmds.DiffStagedSummary(self.context)
         
         with open("./commit_template.txt","r") as file:
             template = file.read()
         
         title,body = summarize_changes(git_diff=diff.new_diff_text, template=template, verbose=True)
-        print(title,body)
-        self.set_commit_message(title+"\n"+body)
 
+        self.set_commit_message(title + "\n" + body)
 
     def set_expandtab(self, value):
         self.description.set_expandtab(value)

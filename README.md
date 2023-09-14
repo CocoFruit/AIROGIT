@@ -10,14 +10,17 @@
 
 - **Efficiency and Consistency**: Say goodbye to the hassle of manual commit message creation. AIROGIT promotes consistency, reduces confusion, and ensures your commit messages are well-formed.
 
-- **Seamless GIT-COLA Integration**: AIROGIT seamlessly integrates into GIT-COLA's Git GUI, offering a familiar and user-friendly experience for developers.
+- **Seamless GIT-COLA Integration**: AIROGIT seamlessly integrates into [GIT-COLA's Git GUI](https://github.com/git-cola/git-cola), offering a familiar and user-friendly experience for developers.
 
 ## Project Overview
 
 AIROGIT is designed to enhance the Git version control workflow by automating the process of generating commit messages and descriptions. This repository contains the source code and documentation for AIROGIT.
 
-### Repository Structure
+## Project Status
 
+AIROGIT is actively maintained and developed by me and the GIT-COLA project is also being actively maintaned and developed seperately. We welcome contributions from the community and are committed to improving this tool continuously.
+
+### Repository Structure
 
 - `bin/`: Binary files and executables.
 - `cola/`: Code related to GIT-COLA integration.
@@ -57,9 +60,6 @@ AIROGIT is designed to enhance the Git version control workflow by automating th
 - `setup.py`: Setup script for installation.
 - `tox.ini`: Configuration for Tox testing.
 
-## Project Status
-
-AIROGIT is actively maintained and developed. We welcome contributions from the community and are committed to improving this tool continuously.
 
 ## License
 
