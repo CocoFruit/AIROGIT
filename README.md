@@ -1,6 +1,6 @@
 # AIROGIT 
 
-![Git Meme](git_meme.webp)
+![Git Meme](./images/git_meme.webp)
 
 **AIROGIT** (*AI-Related Overview and Git Information Tool*) is an innovative tool designed to simplify and enhance your Git version control workflow. Our ultimate goal is to empower developers with automated commit messages and descriptions using advanced Language Model technology. This ensures that your Git history is clear, informative, and consistent. AIROGIT seamlessly integrates with [GIT-COLA's Git GUI](https://github.com/git-cola/git-cola), making it the ultimate solution for streamlining your versioning process.
 

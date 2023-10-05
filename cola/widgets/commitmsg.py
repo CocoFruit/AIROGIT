@@ -1,4 +1,4 @@
-from airogit import summarize_changes
+from cola.airogit import summarize_changes
 
 from functools import partial
 
@@ -30,6 +30,9 @@ from .selectcommits import select_commits
 from .spellcheck import SpellCheckLineEdit, SpellCheckTextEdit
 from .text import anchor_mode
 
+from ..git import create
+
+import os
 
 class CommitMessageEditor(QtWidgets.QFrame):
     commit_finished = Signal(object)
@@ -397,10 +400,23 @@ class CommitMessageEditor(QtWidgets.QFrame):
         
         diff = cmds.DiffStagedSummary(self.context)
         
-        with open("./commit_template.txt","r") as file:
+        with open(r"cola\config\commit_template.txt","r") as file:
             template = file.read()
-        
-        title,body = summarize_changes(git_diff=diff.new_diff_text, template=template, verbose=True)
+
+        # Create a Git instance
+        git_inst = create()
+
+        # Run the 'git rev-parse' command to get the top-level directory
+        status, out, err = git_inst.rev_parse('--show-toplevel')
+
+        # Check if the command was successful
+        if status == 0:
+            # 'out' contains the top-level directory path
+            repo_name = os.path.basename(out.strip())
+        else:
+            print(f"Error: {err.strip()}")
+
+        title,body = summarize_changes(name=repo_name, git_diff=diff.new_diff_text, template=template, verbose=True)
 
         self.set_commit_message(title + "\n" + body)
 

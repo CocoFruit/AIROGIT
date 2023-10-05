@@ -1,7 +1,7 @@
 import openai
 import os
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def send_it(messages, prompt):
     messages.append(
@@ -17,10 +17,10 @@ def send_it(messages, prompt):
 
     return reply, messages
 
-def summarize_changes(git_diff, template, verbose=False):
+def summarize_changes(name, git_diff, template, verbose=False):
     messages = [ {"role": "system", "content": '''You are an intelligent system that knows the past and present versions of files and directories'''} ]
 
-    summary_prompt = f"""Given the differences in a git repo, create a summary and description for the commit message. Use what you know about creating concise and accurate commit messages to create the message. 
+    summary_prompt = f"""Given the differences in a git repo named {name}, create a summary and description for the commit message. Use what you know about creating concise and accurate commit messages to create the message. 
     \nHere is a template for a commit message:\n {template}
     \n\nHere is the git diff:\n {git_diff}
     """
@@ -30,4 +30,4 @@ def summarize_changes(git_diff, template, verbose=False):
     title = reply[0].replace("Title:","").strip()
     body = reply[1].replace("Body:","").strip()
 
-    return title,body
+    return title,body   
