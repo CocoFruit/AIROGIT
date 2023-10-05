@@ -1,7 +1,10 @@
 import openai
-import os
+import yaml
 
-openai.api_key = "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"
+with open("config/config.yaml", "r") as f:
+    config = yaml.safe_load(f)
+
+openai.api_key = config.get("openai",{}).get("api_key")
 
 def send_it(messages, prompt):
     messages.append(
