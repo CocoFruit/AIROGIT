@@ -51,7 +51,27 @@ pip install -r requirements.txt
 pip install .
 ```
 
-## Usage
+### Configuration
+
+Before you start using AIROGIT, make sure to set up your API key by following these steps:
+
+*Note: You can obtain your API key from OpenAI's official website. Keep your API key secure and do not share it publicly or with untrusted parties.*
+
+1. Navigate to the `airogit\cola` directory within your project directory.
+
+2. Locate the `config.yaml` file.
+
+3. Open `config.yaml` using a text editor.
+
+4. Find the section for API Key and add your API key as follows:
+   ```yaml
+   api_key: YOUR_API_KEY
+   ```
+5. Save and close the `config.yaml` file.
+
+**Keep your API key secure and do not share it publicly or with untrusted parties.**
+
+### Usage
 
 Now that you have AIROGIT installed, be sure you are in the directory of the git project you want to use AIROGIT with. Then, run the following command:
 
