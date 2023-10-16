@@ -32,7 +32,7 @@ Before you begin, ensure you have the following prerequisites installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/airogit.git
+git clone https://github.com/CocoFruit/AIROGIT.git
 ```
 Or
 Downloadin the zip file and extract it.
