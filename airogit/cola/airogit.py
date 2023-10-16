@@ -1,7 +1,7 @@
 import openai
 import yaml
 
-with open("config/config.yaml", "r") as f:
+with open("cola\config\config.yaml", "r") as f:
     config = yaml.safe_load(f)
 
 openai.api_key = config.get("openai",{}).get("api_key")
