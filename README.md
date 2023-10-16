@@ -19,6 +19,52 @@ AIROGIT is designed to enhance the Git version control workflow by automating th
 ## Demo
 [AIROGIT Demo](https://www.youtube.com/watch?v=zMMak_UV_bU)
 
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have the following prerequisites installed:
+
+- [Python 3.x](https://www.python.org/downloads/)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/airogit.git
+```
+Or
+Downloadin the zip file and extract it.
+
+2. Navigate to the project directory and be sure to be in the /airogit/airogit directory
+
+3. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Install the package:
+
+```bash
+pip install .
+```
+
+## Usage
+
+Now that you have AIROGIT installed, be sure you are in the directory of the git project you want to use AIROGIT with. Then, run the following command:
+
+```bash
+git-cola
+```
+
+or
+
+```bash
+cola
+```
+
 ## Project Status
 
 AIROGIT is actively maintained and developed by me and the [GIT-COLA](https://github.com/git-cola/git-cola) is also being actively maintaned and developed seperately. We welcome contributions from the community and are committed to improving this tool continuously.

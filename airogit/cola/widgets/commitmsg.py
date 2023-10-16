@@ -400,7 +400,7 @@ class CommitMessageEditor(QtWidgets.QFrame):
         
         diff = cmds.DiffStagedSummary(self.context)
         
-        with open(r"cola\config\commit_template.txt","r") as file:
+        with open(r"airogit\cola\config\commit_template.txt","r") as file:
             template = file.read()
 
         # Create a Git instance
