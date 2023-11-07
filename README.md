@@ -35,7 +35,7 @@ Before you begin, ensure you have the following prerequisites installed:
 git clone https://github.com/CocoFruit/AIROGIT.git
 ```
 Or
-Downloadin the zip file and extract it.
+downloading the zip file and extract it.
 
 2. Navigate to the project directory and be sure to be in the /airogit/airogit directory
 
