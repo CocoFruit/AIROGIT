@@ -1,21 +1,37 @@
-import openai
+from openai import OpenAI
 import yaml
+import os
 
-with open(".\cola\config\config.yaml", "r") as f:
+# print directory
+# Get the directory where your Python script is located
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Define the path to the desired file relative to the script directory
+desired_file_path = os.path.join(script_directory, "config", "config.yaml")
+
+# Open the file with the desired path
+with open(desired_file_path, "r") as f:
+    # Your code to work with the file goes here
     config = yaml.safe_load(f)
 
-openai.api_key = config.get("openai",{}).get("gpt-api-key")
+key = config.get("openai",{}).get("gpt-api-key")
 
-def send_it(messages, prompt):
+if key is None:
+    raise Exception("Please add your openai api key to config/config.yaml")
+
+client = OpenAI(api_key=key)
+
+def send_it(messages, prompt,model="gpt-3.5-turbo"):
     messages.append(
         {"role": "assistant", "content": prompt},
     )
 
-    chat = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo", messages=messages
+    response = client.chat.completions.create(
+        messages=messages,
+        model = model
     )
 
-    reply = chat.choices[0].message.content
+    reply = response.choices[0].message.content
     messages.append({"role": "assistant", "content": reply})
 
     return reply, messages
