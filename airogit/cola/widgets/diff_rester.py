@@ -7,7 +7,7 @@ import os
 script_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Define the path to the desired file relative to the script directory
-desired_file_path = os.path.join(script_directory, "config", "config.yaml")
+desired_file_path = os.path.join(script_directory, "../config", "config.yaml")
 
 # Open the file with the desired path
 with open(desired_file_path, "r") as f:
@@ -46,9 +46,24 @@ def summarize_changes(name, git_diff, template, verbose=False):
     \n\nHere is the git diff:\n {git_diff}
     """
 
-    reply,messages = send_it(messages, summary_prompt,model="gpt-4")
+    reply,messages = send_it(messages, summary_prompt,model="gpt-3.5-turbo")
     reply = reply.strip().split("\n",1)
     title = reply[0].replace("Title:","").strip()
     body = reply[1].replace("Body:","").strip()
 
     return title,body   
+
+def main():
+    with open(r"C:\Users\parke\OneDrive\Documents\GitHub\AIROGIT\airogit\cola\sample react diff.txt","r") as f:
+        sample_diff = f.read()
+
+    with open(r"C:\Users\parke\OneDrive\Documents\GitHub\AIROGIT\airogit\cola\config\commit_template.txt","r") as file:
+        template = file.read()
+
+    title,body = summarize_changes(name="react", git_diff=sample_diff, template=template, verbose=True)
+
+    print(f"Title: {title}")
+    print(f"Body: {body}")
+
+if __name__ == "__main__":
+    main()

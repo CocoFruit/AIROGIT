@@ -1,0 +1,73 @@
+---
+ src/Calculator/Views/NumberPad.xaml           |  2 ++
+ .../StandardModeFunctionalTests.cs            | 31 -------------------
+ 2 files changed, 2 insertions(+), 31 deletions(-)
+
+diff --git a/src/Calculator/Views/NumberPad.xaml b/src/Calculator/Views/NumberPad.xaml
+index fb8753862..62b604e1b 100644
+--- a/src/Calculator/Views/NumberPad.xaml
++++ b/src/Calculator/Views/NumberPad.xaml
+@@ -110,10 +110,12 @@
+                                    AutomationProperties.AutomationId="num9Button"
+                                    AutomationProperties.Name="{utils:ResourceString Name=num9Button/[using:Windows.UI.Xaml.Automation]AutomationProperties/Name}"
+                                    ButtonId="Nine"/>
++        <!-- DO NOT REMOVE the common:KeyboardShortcutManager.Character from this element, it's value will be overwritten by the KeyboardShortcutManager -->
+         <controls:CalculatorButton x:Name="DecimalSeparatorButton"
+                                    Grid.Row="3"
+                                    Grid.Column="2"
+                                    Style="{Binding ElementName=ControlRoot, Path=ButtonStyle}"
++                                   common:KeyboardShortcutManager.Character="."
+                                    common:KeyboardShortcutManager.VirtualKey="{utils:ResourceVirtualKey Name=decimalSeparatorButton/[using:CalculatorApp.Common]KeyboardShortcutManager/VirtualKey}"
+                                    AutomationProperties.AutomationId="decimalSeparatorButton"
+                                    AutomationProperties.Name="{utils:ResourceString Name=decimalSeparatorButton/[using:Windows.UI.Xaml.Automation]AutomationProperties/Name}"
+diff --git a/src/CalculatorUITests/StandardModeFunctionalTests.cs b/src/CalculatorUITests/StandardModeFunctionalTests.cs
+index e10c82450..ae23efa2f 100644
+--- a/src/CalculatorUITests/StandardModeFunctionalTests.cs
++++ b/src/CalculatorUITests/StandardModeFunctionalTests.cs
+@@ -316,11 +316,8 @@ public void KeyboardInput_InvertSquaredSevenEightNine()
+             Assert.AreEqual("square (9)", page.CalculatorResults.GetCalculatorExpressionText()); //verifies squared hotkey
+         }
+ 
+-        // Ignore this test and add a new test KeyboardInput_PercentSquareRootBackspaceNegateOneZero below
+-        // to avoid the issue of decimal keyboard input
+         [TestMethod]
+         [Priority(1)]
+-        [Ignore]
+         public void KeyboardInput_PercentSquareRootBackspaceDecimalNegateOneZero()
+         {
+             //Verifies the %, square root, backspace, decimal, negate, 1, and 0 button
+@@ -348,34 +345,6 @@ public void KeyboardInput_PercentSquareRootBackspaceDecimalNegateOneZero()
+             Assert.AreEqual("9.9", page.CalculatorResults.GetCalculatorResultText()); //verifies calculation with decimal point and negative number
+         }
+ 
+-        [TestMethod]
+-        [Priority(1)]
+-        public void KeyboardInput_PercentSquareRootBackspaceNegateOneZero()
+-        {
+-            //Verifies the %, square root, backspace, negate, 1, and 0 button
+-            CalculatorApp.EnsureCalculatorHasFocus();
+-            CalculatorApp.Window.SendKeys("100");
+-            CalculatorApp.Window.SendKeys(Keys.Backspace);
+-            Assert.AreEqual("10", page.CalculatorResults.GetCalculatorResultText()); // verifies using the 1 key, the 0 key, and the backspace key
+-            CalculatorApp.Window.SendKeys(Keys.Add);
+-            CalculatorApp.EnsureCalculatorHasFocus();
+-            CalculatorApp.Window.SendKeys(Keys.Shift + "5" + Keys.Shift);
+-            Assert.AreEqual("1", page.CalculatorResults.GetCalculatorResultText()); //verifies percent calculation
+-            Assert.AreEqual("10 + 1", page.CalculatorResults.GetCalculatorExpressionText()); //verifies percent hotkey
+-            CalculatorApp.Window.SendKeys(Keys.Shift);
+-            CalculatorApp.Window.SendKeys(Keys.Shift + "5" + Keys.Shift);
+-            CalculatorApp.Window.SendKeys(Keys.Shift);
+-            CalculatorApp.Window.SendKeys(Keys.Shift + "2" + Keys.Shift);
+-            Assert.AreEqual("0.3162277660168379", page.CalculatorResults.GetCalculatorResultText()); //verifies square root calculation
+-            Assert.AreEqual("10 + √(0.1)", page.CalculatorResults.GetCalculatorExpressionText()); //verifies 2√x hotkey
+-            CalculatorApp.Window.SendKeys("1");
+-            CalculatorApp.Window.SendKeys(Keys.Shift + "5" + Keys.Shift);
+-            CalculatorApp.Window.SendKeys(Keys.F9);
+-            Assert.AreEqual("-0.1", page.CalculatorResults.GetCalculatorResultText()); //verifies negate hotkey
+-            page.StandardOperators.EqualButton.Click();
+-            Assert.AreEqual("9.9", page.CalculatorResults.GetCalculatorResultText()); //verifies calculation with decimal point and negative number
+-        }
+-
+         [TestMethod]
+         [Priority(1)]
+         public void KeyboardInput_MemoryHotkeys()
