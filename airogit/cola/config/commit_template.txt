@@ -4,7 +4,7 @@
 
 # Remember blank line between title and body.
 
-# Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
+# Body: Explain *what* and *why* (not *how*).
 # Wrap at 72 chars. ################################## which is here:  #
 # Always begin with "Body:"
 
