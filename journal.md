@@ -17,6 +17,26 @@ Here's the gui with the autofill button that comes from the command:
 ## 11/28/2023 ##
 Talked to Seward and decided to find commit messages from a bad ass repo and use my ai to generate the messages and compare them. Found some commits to use.
 
-## 11/30/2023 ##
+## 12/04/2023 ##
 Made diff_rester.py and used it to create a commit for the code and made a table with the human commit and the ai commit. grabbed a commit from react and used that
 https://docs.google.com/document/d/1lZvX4UnyTsaAoKqmxYguq3sdK0egx9_RyjpqR_ltuX8/edit?usp=sharing 
+
+## 12/05/2023 ##
+developing an objective rubric for a "good commit"
+here's what I have so far:
+
+Title:
+1: The title clearly describes the purpose of the commit.
+0: Does not
+
+Conciseness:
+1: Concise and to the point
+0: Rambles
+
+Clarity:
+1: Easy to follow
+0: Not easy to follow
+
+Body Content:
+1: Body Content describes exaclty what the change is
+0: Body Content doesnt accurately the change is or is missing key points
