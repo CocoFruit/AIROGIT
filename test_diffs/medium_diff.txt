@@ -1,18 +1,16 @@
----
- demo.py | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+demo.py | 21 ++++++++++++++++++---
+1 file changed, 18 insertions(+), 3 deletions(-)
 
 diff --git a/demo.py b/demo.py
 index 0899c6d..04211ae 100644
 --- a/demo.py
 +++ b/demo.py
-@@ -101,7 +101,16 @@ def safe_b64decode(s):
+@@ -56,9 +56,20 @@ def safe_b64decode(s):
      vd = b64encode(vd).decode()
      user.register(vd)
  
 -logging.info(f"Looked up textgpt@icloud.com, got response: {user.lookup(['mailto:textgpt@icloud.com'])}")
-+#logging.info(f"Looked up textgpt@icloud.com, got response: {user.lookup(['mailto:textgpt@icloud.com'])}")
-+
+-#logging.info(f"Looked up textgpt@icloud.com, got response: {user.lookup(['mailto:textgpt@icloud.com'])}")
 +logging.info("Enter a username to look up, for example: mailto:textgpt@icloud.com")
 +while True:
 +    # Read a line from stdin
@@ -21,6 +19,14 @@ index 0899c6d..04211ae 100644
 +        break
 +    # Look up the username
 +    logging.info(f"Looked up {line}, got response: {user.lookup([line])}")
+ 
++# Some additional functionality added
++def do_something():
++    print("Doing something...")
++    return "Something done."
++
++result = do_something()
++print(f"Result: {result}")
  
  # Write config.json
  CONFIG["id"] = {

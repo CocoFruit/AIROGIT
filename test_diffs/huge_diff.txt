@@ -1,0 +1,166 @@
+demo.py | 2361 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1 file changed, 2361 insertions(+)
+
+diff --git a/demo.py b/demo.py
+index 0899c6d..04211ae 100644
+--- a/demo.py
++++ b/demo.py
+@@ -1,5 +1,2366 @@
++# This is a demo Python script demonstrating various functionalities
++# Copyright (c) 2024, YourCompany. All rights reserved.
++# Author: John Doe <john.doe@yourcompany.com>
++
++# Importing necessary libraries
+ import logging
+ from base64 import b64encode, b64decode
++import time
+ 
++# Defining a class for user management
+ class UserManagement:
++    def __init__(self):
++        self.users = {}
++
++    def register(self, user_data):
++        # Add user to the database
++        self.users[user_data["email"]] = user_data
++
++    def lookup(self, email):
++        # Lookup user by email
++        return self.users.get(email, "User not found")
++
++# Initializing the user management system
+ user = UserManagement()
+ 
++# Function to safely decode base64 strings
+ def safe_b64decode(s):
++    try:
++        vd = b64decode(s)
++    except Exception as e:
++        logging.error(f"Error decoding base64 string: {e}")
++        return None
++    return vd
+ 
++# Some sample data
+ sample_data = {
++    "email": "textgpt@icloud.com",
++    "name": "TextGPT",
++    "age": 3,
++    "is_active": True
++}
++
++# Registering the sample user
+ user.register(sample_data)
+ 
+-logging.info(f"Looked up textgpt@icloud.com, got response: {user.lookup(['mailto:textgpt@icloud.com'])}")
+-#logging.info(f"Looked up textgpt@icloud.com, got response: {user.lookup(['mailto:textgpt@icloud.com'])}")
++logging.info("Enter a username to look up, for example: mailto:textgpt@icloud.com")
++while True:
++    # Read a line from stdin
++    line = input("> ")
++    if line == "":
++        break
++    # Look up the username
++    logging.info(f"Looked up {line}, got response: {user.lookup([line])}")
+ 
+-# Some additional functionality added
++def do_something():
++    print("Doing something...")
++    return "Something done."
++
++result = do_something()
++print(f"Result: {result}")
++
++# More functionality added
++class Calculator:
++    def add(self, a, b):
++        return a + b
++
++    def subtract(self, a, b):
++        return a - b
++
++    def multiply(self, a, b):
++        return a * b
++
++    def divide(self, a, b):
++        try:
++            result = a / b
++        except ZeroDivisionError:
++            logging.error("Division by zero!")
++            return None
++        return result
++
++# Initializing the calculator
++calc = Calculator()
++
++# Testing the calculator
++num1 = 10
++num2 = 5
++
++print(f"{num1} + {num2} = {calc.add(num1, num2)}")
++print(f"{num1} - {num2} = {calc.subtract(num1, num2)}")
++print(f"{num1} * {num2} = {calc.multiply(num1, num2)}")
++print(f"{num1} / {num2} = {calc.divide(num1, num2)}")
++
++# Function to perform a complex operation
++def complex_operation():
++    result = 0
++    for i in range(1000000):
++        result += i
++    return result
++
++# Performing the complex operation
++complex_result = complex_operation()
++print(f"Complex operation result: {complex_result}")
++
++# Adding more complexity
++class ComplexClass:
++    def __init__(self, name):
++        self.name = name
++
++    def greet(self):
++        return f"Hello, {self.name}!"
++
++# Creating an instance of the complex class
++obj = ComplexClass("World")
++
++# Greeting
++print(obj.greet())
++
++# More additions
++def do_complex_task():
++    result = 1
++    for i in range(1, 11):
++        result *= i
++    return result
++
++# Performing a complex task
++complex_task_result = do_complex_task()
++print(f"Result of a complex task: {complex_task_result}")
++
++# A long-running process
++def long_running_process():
++    print("Starting a long-running process...")
++    time.sleep(5)
++    print("Long-running process completed!")
++
++# Running the long-running process
++long_running_process()
++
++# Some data processing
++data = [1, 2, 3, 4, 5]
++sum_data = sum(data)
++avg_data = sum_data / len(data)
++
++print(f"Sum of data: {sum_data}")
++print(f"Average of data: {avg_data}")
++
++# More data processing
++def process_data(data):
++    processed_data = [x * 2 for x in data]
++    return processed_data
++
++# Processing the data
++processed_data = process_data(data)
++print(f"Processed data: {processed_data}")
++
++# End of the demo script
