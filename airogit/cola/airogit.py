@@ -45,8 +45,8 @@ def summarize_changes(name, git_diff, template, verbose=False):
     \nHere is a template for a commit message:\n {template}
     \n\nHere is the git diff:\n {git_diff}
     """
-
-    reply,messages = send_it(messages, summary_prompt,model="gpt-4")
+    
+    reply,messages = send_it(messages, summary_prompt,model="gpt-3.5-turbo")
     reply = reply.strip().split("\n",1)
     title = reply[0].replace("Title:","").strip()
     body = reply[1].replace("Body:","").strip()
